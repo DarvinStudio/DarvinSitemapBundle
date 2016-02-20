@@ -1,0 +1,4 @@
+darvin_sitemap:
+    path:     /sitemap.xml
+    defaults: { _controller: DarvinSitemapBundle:Sitemap:sitemap }
+    methods:  [ get ]
