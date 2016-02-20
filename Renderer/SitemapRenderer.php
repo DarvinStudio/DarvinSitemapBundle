@@ -55,10 +55,8 @@ class SitemapRenderer implements SitemapRendererInterface
             throw new RendererException($message);
         }
 
-        return !empty($sitemapUrls)
-            ? $this->templating->render($this->template, array(
-                'urls' => $sitemapUrls,
-            ))
-            : '';
+        return $this->templating->render($this->template, array(
+            'urls' => $sitemapUrls,
+        ));
     }
 }
