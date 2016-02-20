@@ -7,7 +7,7 @@ This bundle provides simple sitemap generating functionality for Symfony2-based 
 
 ```json
 "require": {
-    "darvinstudio/darvin-sitemap-bundle": "dev-master@dev"
+    "darvinstudio/darvin-sitemap-bundle": "1.0.*"
 }
 ```
 
