@@ -67,8 +67,20 @@ class TestSitemapUrlProvider implements SitemapUrlProviderInterface
 #### 2. Define created class as a service and tag it with "darvin_sitemap.url_provider".
 
 ```yaml
+# app/config/services.yml
 app.sitemap.url_provider.test:
     class: AppBundle\Sitemap\TestSitemapUrlProvider
     tags:
         - { name: darvin_sitemap.url_provider }
+```
+
+#### 3. Target your browser to http://your-domain.com/sitemap.xml to get your sitemap.
+
+## Configuration reference
+
+```yaml
+darvin_sitemap:
+    cache_max_age: 3600 # Shared cache max age, 60 minutes (read http://symfony.com/doc/current/book/http_cache.html to know how to enable shared cache, which is recommended)
+    template:
+        DarvinSitemapBundle:Sitemap:sitemap.xml.twig
 ```
