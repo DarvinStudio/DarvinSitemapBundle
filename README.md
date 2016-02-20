@@ -3,7 +3,7 @@ This bundle provides simple sitemap generating functionality for Symfony2-based 
 
 ## Installation
 
-1. Add bundle to "required" section of composer.json:
+### 1. Add bundle to "required" section of composer.json:
 
 ```json
     ...
@@ -13,11 +13,11 @@ This bundle provides simple sitemap generating functionality for Symfony2-based 
     ...
 ```
 
-2. Download bundle using Composer:
+### 2. Download bundle using Composer:
 
 $ /usr/bin/env php composer.phar update darvinstudio/darvin-sitemap-bundle
 
-3. Register bundle in app/AppKernel.php:
+### 3. Register bundle in app/AppKernel.php:
 
 ```php
     public function registerBundles()
