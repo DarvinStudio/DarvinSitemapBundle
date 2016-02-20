@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Darvin\SitemapBundle\Sitemap;
+namespace Darvin\SitemapBundle\Url;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
