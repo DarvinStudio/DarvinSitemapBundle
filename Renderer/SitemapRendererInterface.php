@@ -8,17 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Darvin\SitemapBundle\Url\Validator;
+namespace Darvin\SitemapBundle\Renderer;
 
 /**
- * Sitemap URL validator
+ * Sitemap renderer
  */
-interface SitemapUrlValidatorInterface
+interface SitemapRendererInterface
 {
     /**
      * @param \Darvin\SitemapBundle\Url\SitemapUrl[] $sitemapUrls Sitemap URLs
      *
-     * @throws \Darvin\SitemapBundle\Url\Validator\UrlInvalidException
+     * @return string
+     * @throws \Darvin\SitemapBundle\Renderer\RendererException
      */
-    public function validateSitemapUrls(array $sitemapUrls);
+    public function renderSitemap(array $sitemapUrls);
 }

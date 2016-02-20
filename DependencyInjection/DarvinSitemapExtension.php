@@ -36,6 +36,7 @@ class DarvinSitemapExtension extends Extension
 
         foreach (array(
             'generator',
+            'renderer',
             'url_validator',
         ) as $resource) {
             $loader->load($resource.'.yml');

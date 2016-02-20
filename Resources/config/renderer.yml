@@ -1,0 +1,14 @@
+parameters:
+    darvin_sitemap.renderer.generic.class: Darvin\SitemapBundle\Renderer\SitemapRenderer
+
+services:
+    darvin_sitemap.renderer.generic:
+        class:  %darvin_sitemap.renderer.generic.class%
+        public: false
+        arguments:
+            - "@templating"
+            - %darvin_sitemap.template%
+
+    darvin_sitemap.renderer:
+        alias:  darvin_sitemap.renderer.generic
+        public: false
