@@ -19,6 +19,8 @@ interface SitemapGeneratorInterface
 {
     /**
      * @param \Darvin\SitemapBundle\Url\SitemapUrlProviderInterface $urlProvider Sitemap URL provider
+     *
+     * @throws \Darvin\SitemapBundle\Generator\GeneratorException
      */
     public function addUrlProvider(SitemapUrlProviderInterface $urlProvider);
 

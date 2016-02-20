@@ -1,0 +1,13 @@
+parameters:
+    darvin_sitemap.url_validator.generic.class: Darvin\SitemapBundle\Url\Validator\SitemapUrlValidator
+
+services:
+    darvin_sitemap.url_validator.generic:
+        class:  %darvin_sitemap.url_validator.generic.class%
+        public: false
+        arguments:
+            - "@validator"
+
+    darvin_sitemap.url_validator:
+        alias:  darvin_sitemap.url_validator.generic
+        public: false

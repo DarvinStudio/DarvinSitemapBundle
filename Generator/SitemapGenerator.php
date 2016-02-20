@@ -11,6 +11,7 @@
 namespace Darvin\SitemapBundle\Generator;
 
 use Darvin\SitemapBundle\Url\SitemapUrlProviderInterface;
+use Darvin\SitemapBundle\Url\Validator\SitemapUrlValidatorInterface;
 
 /**
  * Sitemap generator
@@ -18,15 +19,21 @@ use Darvin\SitemapBundle\Url\SitemapUrlProviderInterface;
 class SitemapGenerator implements SitemapGeneratorInterface
 {
     /**
+     * @var \Darvin\SitemapBundle\Url\Validator\SitemapUrlValidatorInterface
+     */
+    private $urlValidator;
+
+    /**
      * @var \Darvin\SitemapBundle\Url\SitemapUrlProviderInterface[]
      */
     private $urlProviders;
 
     /**
-     * Constructor
+     * @param \Darvin\SitemapBundle\Url\Validator\SitemapUrlValidatorInterface $urlValidator Sitemap URL validator
      */
-    public function __construct()
+    public function __construct(SitemapUrlValidatorInterface $urlValidator)
     {
+        $this->urlValidator = $urlValidator;
         $this->urlProviders = array();
     }
 
@@ -49,6 +56,14 @@ class SitemapGenerator implements SitemapGeneratorInterface
      */
     public function generateSitemap()
     {
-        // TODO: Implement generateSitemap() method.
+        $urls = array();
+
+        foreach ($this->urlProviders as $urlProvider) {
+            $providedUrls = $urlProvider->getSitemapUrls();
+
+            $this->urlValidator->validateSitemapUrls($providedUrls);
+
+            $urls = array_merge($urls, $providedUrls);
+        }
     }
 }
