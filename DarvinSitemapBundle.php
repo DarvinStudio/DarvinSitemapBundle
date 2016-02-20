@@ -10,6 +10,8 @@
 
 namespace Darvin\SitemapBundle;
 
+use Darvin\SitemapBundle\DependencyInjection\Compiler\AddSitemapUrlProvidersPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -17,5 +19,11 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class DarvinSitemapBundle extends Bundle
 {
-
+    /**
+     * {@inheritdoc}
+     */
+    public function build(ContainerBuilder $container)
+    {
+        $container->addCompilerPass(new AddSitemapUrlProvidersPass());
+    }
 }
