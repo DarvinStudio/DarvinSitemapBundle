@@ -1,0 +1,10 @@
+parameters:
+    darvin_sitemap.generator.generic.class: Darvin\SitemapBundle\Generator\SitemapGenerator
+
+services:
+    darvin_sitemap.generator.generic:
+        class:  %darvin_sitemap.generator.generic.class%
+        public: false
+
+    darvin_sitemap.generator:
+        alias: darvin_sitemap.generator.generic
