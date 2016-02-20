@@ -80,7 +80,8 @@ app.sitemap.url_provider.test:
 
 ```yaml
 darvin_sitemap:
-    cache_max_age: 3600 # Shared cache max age, 60 minutes (read http://symfony.com/doc/current/book/http_cache.html to know how to enable shared cache, which is recommended)
+    cache_max_age: 3600 # Shared cache max age, 60 minutes
+    # (read http://symfony.com/doc/current/book/http_cache.html to know how to enable shared cache)
     template:
         DarvinSitemapBundle:Sitemap:sitemap.xml.twig
 ```
