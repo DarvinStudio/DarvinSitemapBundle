@@ -74,14 +74,14 @@ app.sitemap.url_provider.test:
         - { name: darvin_sitemap.url_provider }
 ```
 
-#### 3. Target your browser to http://your-domain.com/sitemap.xml to get your sitemap.
+#### 3. Target web browser to http://your-domain.com/sitemap.xml to get your sitemap.
 
 ## Configuration reference
 
 ```yaml
 darvin_sitemap:
     cache_max_age: 3600 # Shared cache max age, 60 minutes
-    # (read http://symfony.com/doc/current/book/http_cache.html to know how to enable shared cache)
+    # Read http://symfony.com/doc/current/book/http_cache.html to know how to enable shared cache, which is highly recommended
     template:
         DarvinSitemapBundle:Sitemap:sitemap.xml.twig
 ```
