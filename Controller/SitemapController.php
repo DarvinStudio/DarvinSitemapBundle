@@ -23,9 +23,13 @@ class SitemapController extends Controller
      */
     public function sitemapAction()
     {
-        return new Response($this->getSitemapGenerator()->generateSitemap(), 200, array(
+        $response = new Response($this->getSitemapGenerator()->generateSitemap(), 200, array(
             'Content-Type' => 'text/xml',
         ));
+
+        return $response
+            ->setPublic()
+            ->setSharedMaxAge($this->getParameter('darvin_sitemap.cache_max_age'));
     }
 
     /**

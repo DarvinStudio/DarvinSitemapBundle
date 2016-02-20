@@ -33,6 +33,7 @@ class Configuration implements ConfigurationInterface
         // more information on that topic.
         $rootNode
             ->children()
+                ->integerNode('cache_max_age')->min(0)->defaultValue(60 * 60)->end()
                 ->scalarNode('template')
                     ->cannotBeEmpty()
                     ->defaultValue('DarvinSitemapBundle:Sitemap:sitemap.xml.twig');

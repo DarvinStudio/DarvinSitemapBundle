@@ -30,6 +30,7 @@ class DarvinSitemapExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('darvin_sitemap.cache_max_age', $config['cache_max_age']);
         $container->setParameter('darvin_sitemap.template', $config['template']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
