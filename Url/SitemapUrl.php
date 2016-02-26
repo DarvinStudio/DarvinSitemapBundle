@@ -30,6 +30,7 @@ class SitemapUrl
      *
      * @Assert\NotBlank
      * @Assert\Length(max="2048")
+     * @Assert\Url
      */
     private $location;
 
@@ -53,17 +54,31 @@ class SitemapUrl
     private $priority;
 
     /**
-     * @param string    $location        Location
-     * @param \DateTime $lastModifiedAt  Last modified at
-     * @param string    $changeFrequency Change frequency
-     * @param float     $priority        Priority
+     * @var \Darvin\SitemapBundle\Url\AlternateLink[]
+     *
+     * @Assert\Valid
      */
-    public function __construct($location, \DateTime $lastModifiedAt = null, $changeFrequency = null, $priority = null)
-    {
+    private $alternateLinks;
+
+    /**
+     * @param string                                    $location        Location
+     * @param \DateTime                                 $lastModifiedAt  Last modified at
+     * @param string                                    $changeFrequency Change frequency
+     * @param float                                     $priority        Priority
+     * @param \Darvin\SitemapBundle\Url\AlternateLink[] $alternateLinks  Alternate links
+     */
+    public function __construct(
+        $location,
+        \DateTime $lastModifiedAt = null,
+        $changeFrequency = null,
+        $priority = null,
+        array $alternateLinks = array()
+    ) {
         $this->location = $location;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->changeFrequency = $changeFrequency;
         $this->priority = $priority;
+        $this->alternateLinks = $alternateLinks;
     }
 
     /**
@@ -144,5 +159,37 @@ class SitemapUrl
     public function getPriority()
     {
         return $this->priority;
+    }
+
+    /**
+     * @param \Darvin\SitemapBundle\Url\AlternateLink[] $alternateLinks alternateLinks
+     *
+     * @return SitemapUrl
+     */
+    public function setAlternateLinks(array $alternateLinks)
+    {
+        $this->alternateLinks = $alternateLinks;
+
+        return $this;
+    }
+
+    /**
+     * @return \Darvin\SitemapBundle\Url\AlternateLink[]
+     */
+    public function getAlternateLinks()
+    {
+        return $this->alternateLinks;
+    }
+
+    /**
+     * @param \Darvin\SitemapBundle\Url\AlternateLink $alternateLink Alternate link
+     *
+     * @return SitemapUrl
+     */
+    public function addAlternateLink(AlternateLink $alternateLink)
+    {
+        $this->alternateLinks[] = $alternateLink;
+
+        return $this;
     }
 }
