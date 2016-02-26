@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {% for url in urls %}
     <url>
         <loc>{{ url.location }}</loc>
-        {% if url.lastModifiedAt %}<lastmod>{{ url.lastModifiedAt | date('Y-m-d') }}</lastmod>{% endif %}
-
-        {% if url.changeFrequency %}<changefreq>{{ url.changeFrequency }}</changefreq>{% endif %}
-
-        {% if url.priority %}<priority>{{ url.priority | number_format(1) }}</priority>{% endif %}
+        {% if url.lastModifiedAt -%}
+            <lastmod>{{ url.lastModifiedAt | date('Y-m-d') }}</lastmod>
+        {% endif -%}
+        {% if url.changeFrequency -%}
+            <changefreq>{{ url.changeFrequency }}</changefreq>
+        {% endif -%}
+        {% if url.priority -%}
+            <priority>{{ url.priority | number_format(1) }}</priority>
+        {% endif -%}
+        {% for alternate_link in url.alternateLinks -%}
+            <xhtml:link rel="alternate" hreflang="{{ alternate_link.hrefLanguage }}" href="{{ alternate_link.href }}" />
+        {% endfor %}
 
     </url>
 {% endfor %}
