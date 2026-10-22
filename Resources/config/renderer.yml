@@ -3,11 +3,11 @@ parameters:
 
 services:
     darvin_sitemap.renderer.generic:
-        class:  %darvin_sitemap.renderer.generic.class%
+        class:  '%darvin_sitemap.renderer.generic.class%'
         public: false
         arguments:
             - "@templating"
-            - %darvin_sitemap.template%
+            - '%darvin_sitemap.template%'
 
     darvin_sitemap.renderer:
         alias:  darvin_sitemap.renderer.generic

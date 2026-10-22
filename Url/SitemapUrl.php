@@ -69,7 +69,7 @@ class SitemapUrl
      */
     public function __construct(
         $location,
-        \DateTime $lastModifiedAt = null,
+        ?\DateTime $lastModifiedAt = null,
         $changeFrequency = null,
         $priority = null,
         array $alternateLinks = array()
@@ -106,7 +106,7 @@ class SitemapUrl
      *
      * @return SitemapUrl
      */
-    public function setLastModifiedAt(\DateTime $lastModifiedAt = null)
+    public function setLastModifiedAt(?\DateTime $lastModifiedAt = null)
     {
         $this->lastModifiedAt = $lastModifiedAt;
 

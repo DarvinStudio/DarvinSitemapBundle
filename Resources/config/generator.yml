@@ -3,7 +3,7 @@ parameters:
 
 services:
     darvin_sitemap.generator.generic:
-        class:  %darvin_sitemap.generator.generic.class%
+        class:  '%darvin_sitemap.generator.generic.class%'
         public: false
         arguments:
             - "@darvin_sitemap.renderer"
